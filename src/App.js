@@ -1,14 +1,28 @@
 
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import ProdList from './components/ProdList';
-import { useSelector } from 'react-redux';
+import Home from './component/Home';
+import Header from './component/Header';
+import AddContact from './component/AddContact';
+import EditContact from './component/EditContact';
+
 
 function App() {
-  const produits=useSelector(state => state.produits)
+ 
   return (
-    <>
-   <ProdList produits={produits}></ProdList>
-  </>
+   < >
+  <Home></Home>
+  <br>
+  </br>
+  <br></br>
+  
+  <Routes>
+      <Route path="/" element={<Header/>} />
+      <Route path="/add" element={<AddContact/>} />
+      <Route path="/edit/:id" element={<EditContact/>} />
+    </Routes>
+  
+    </>
   );
 }
 

@@ -3,15 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import { BrowserRouter } from 'react-router-dom';
+import { createStore } from 'redux';
+import ContactReducers from './redux/reducers/ContactReducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
-import Store from './redux/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+ const store =createStore(ContactReducers,composeWithDevTools())
 root.render(
- 
-  <Provider store={Store}>
+  <Provider store={store}>
+  <BrowserRouter>
     <App />
+    </BrowserRouter>
     </Provider>
+   
  
   
 );
